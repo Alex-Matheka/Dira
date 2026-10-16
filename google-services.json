@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "189097068077",
+    "project_id": "dira-app-58e22",
+    "storage_bucket": "dira-app-58e22.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:189097068077:android:6a73245dc3d28fae4e1aa4",
+        "android_client_info": {
+          "package_name": "com.example.dira"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAGDnI_6JERVUv-eVzKS0nZ1TPItJoWfc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
