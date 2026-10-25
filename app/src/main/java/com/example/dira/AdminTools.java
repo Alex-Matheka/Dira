@@ -43,8 +43,10 @@ public class AdminTools extends AppCompatActivity {
         }
 
         if (cardManageElections != null) {
-            cardManageElections.setOnClickListener(v ->
-                    Toast.makeText(this, "Manage Elections clicked", Toast.LENGTH_SHORT).show());
+            cardManageElections.setOnClickListener(v -> {
+                Intent intent = new Intent(AdminTools.this, ManageElections.class);
+                startActivity(intent);
+            });
         }
 
         if (btnBack != null) {

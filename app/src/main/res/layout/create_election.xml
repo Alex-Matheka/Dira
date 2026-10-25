@@ -13,7 +13,6 @@
         android:id="@+id/stepperHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:paddingHorizontal="16dp"
         android:paddingTop="16dp"
         android:paddingBottom="10dp"
@@ -37,7 +36,7 @@
                 android:id="@+id/step1Circle"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@drawable/tick_circle_solid"
+                android:background="@drawable/black_circle_svgrepo_com"
                 android:fontFamily="@font/jetbrains_mono_regular"
                 android:gravity="center"
                 android:text="1"
@@ -131,7 +130,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/jetbrains_mono_regular"
         android:text="Create Election"
-        android:textColor="@color/black"
+        android:textColor="@color/gold"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -275,7 +274,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/gold"
+                app:cardBackgroundColor="#CCFFFFFF"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="2dp"
                 app:strokeWidth="0dp">
@@ -291,7 +290,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/jetbrains_mono_regular"
                         android:text="Election Sections:"
-                        android:textColor="@color/black"
+                        android:textColor="@color/gold"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -336,11 +335,13 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="12dp"
-                        android:backgroundTint="@color/white"
+                        android:backgroundTint="@color/gold"
                         android:fontFamily="@font/jetbrains_mono_regular"
                         android:text="+ New section"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -355,10 +356,10 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/gold"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="2dp"
-                app:strokeWidth="0dp">
+                app:strokeWidth="0dp"
+                app:cardBackgroundColor="#CCFFFFFF">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -402,10 +403,10 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/gold"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="2dp"
-                app:strokeWidth="0dp">
+                app:strokeWidth="0dp"
+                app:cardBackgroundColor="#CCFFFFFF">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -420,7 +421,7 @@
                         android:layout_height="56dp"
                         android:contentDescription="Checkmark Icon"
                         android:src="@drawable/tick_circle_solid"
-                        app:tint="@color/black" />
+                        app:tint="@color/gold" />
 
                     <!-- Summary Card -->
                     <LinearLayout

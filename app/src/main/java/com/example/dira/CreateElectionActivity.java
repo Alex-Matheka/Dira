@@ -16,6 +16,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CreateElectionActivity extends AppCompatActivity {
 
     private ViewFlipper viewFlipper;
@@ -134,8 +137,43 @@ public class CreateElectionActivity extends AppCompatActivity {
                     goToStep(3);
                 } else if (currentStep == 3) {
                     // Final Submit
-                    Toast.makeText(this, "Election Created Successfully!", Toast.LENGTH_LONG).show();
-                    finish();
+                    String id = etElectionId.getText().toString().trim();
+                    String title = etElectionTitle.getText().toString().trim();
+                    String date = etElectionDate.getText().toString().trim();
+                    String duration = etElectionDuration.getText().toString().trim();
+                    String instructions = etInstructions != null ? etInstructions.getText().toString().trim() : "";
+
+                    List<String> sections = new ArrayList<>();
+                    if (sectionsContainer != null) {
+                        for (int i = 0; i < sectionsContainer.getChildCount(); i++) {
+                            View child = sectionsContainer.getChildAt(i);
+                            if (child instanceof EditText) {
+                                String sec = ((EditText) child).getText().toString().trim();
+                                if (!sec.isEmpty()) {
+                                    sections.add(sec);
+                                }
+                            }
+                        }
+                    }
+
+                    Election election = new Election(id, title, date, duration, sections, instructions);
+
+                    if (btnNext != null) btnNext.setEnabled(false);
+                    Toast.makeText(this, "Saving election ..", Toast.LENGTH_SHORT).show();
+
+                    ElectionStorage.saveElection(election, new ElectionStorage.OnElectionSavedListener() {
+                        @Override
+                        public void onSuccess() {
+                            Toast.makeText(CreateElectionActivity.this, "Election Created .", Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+
+                        @Override
+                        public void onFailure(Exception e) {
+                            if (btnNext != null) btnNext.setEnabled(true);
+                            Toast.makeText(CreateElectionActivity.this, "Failed to save: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
                 }
             });
         }
@@ -217,7 +255,7 @@ public class CreateElectionActivity extends AppCompatActivity {
 
     private void highlightStepCircle(TextView circle) {
         if (circle != null) {
-            circle.setBackgroundResource(R.drawable.tick_circle_solid);
+            circle.setBackgroundResource(R.drawable.black_circle_svgrepo_com);
         }
     }
 
