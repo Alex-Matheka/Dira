@@ -1,5 +1,6 @@
 package com.example.dira;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.transition.TransitionManager;
 import android.view.LayoutInflater;
@@ -112,11 +113,19 @@ public class ElectionAdapter extends RecyclerView.Adapter<ElectionAdapter.Electi
             notifyItemChanged(holder.getBindingAdapterPosition());
         });
 
-        holder.optionCandidates.setOnClickListener(v ->
-                Toast.makeText(v.getContext(), "Candidates clicked for " + election.getTitle(), Toast.LENGTH_SHORT).show());
+        holder.optionCandidates.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), ManageCandidatesActivity.class);
+            intent.putExtra("ELECTION_ID", election.getId());
+            intent.putExtra("ELECTION_TITLE", election.getTitle());
+            v.getContext().startActivity(intent);
+        });
 
-        holder.optionVoters.setOnClickListener(v ->
-                Toast.makeText(v.getContext(), "Voters clicked for " + election.getTitle(), Toast.LENGTH_SHORT).show());
+        holder.optionVoters.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), ManageVotersActivity.class);
+            intent.putExtra("ELECTION_ID", election.getId());
+            intent.putExtra("ELECTION_TITLE", election.getTitle());
+            v.getContext().startActivity(intent);
+        });
 
         holder.optionCloseVoting.setOnClickListener(v -> {
             String currentStatus = election.getStatus();
