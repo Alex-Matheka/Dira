@@ -60,8 +60,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (cardJoinElection != null) {
-            cardJoinElection.setOnClickListener(v ->
-                    Toast.makeText(this, "Vote clicked", Toast.LENGTH_SHORT).show());
+            cardJoinElection.setOnClickListener(v -> {
+                Intent intent = new Intent(MainActivity.this, VoteActivity.class);
+                startActivity(intent);
+            });
         }
 
         if (cardAdminTools != null) {
